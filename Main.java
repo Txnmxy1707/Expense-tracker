@@ -142,13 +142,27 @@ public class Main {
 
                 clearButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
+                        try {
+                            // Use PreparedStatement for safety
+                            PreparedStatement ps = conn.prepareStatement("DELETE FROM expenses");
+                            ps.executeUpdate();
 
+                            // Clear the table in the UI
+                            tableModel.setRowCount(0);
+
+                            // Reset total
+                            totalLabel.setText("Total: ₹0");
+
+                            JOptionPane.showMessageDialog(frame, "All entries cleared from database and UI");
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                            JOptionPane.showMessageDialog(frame, "Error clearing expenses");
+                        }
                     }
                 });
 
-
             }
         });
-        conn.close();
+        
     }
 }
