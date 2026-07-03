@@ -1,4 +1,11 @@
 #EXPENSE TRACKER/BUDGETTING APP
+
+
+
+
+
+
+
 Overview
 This project is a desktop‑based Expense Tracker application built using Java Swing for the user interface and PostgreSQL for data persistence. It allows users to record daily expenses, categorize them, and view totals in a simple tabular format.
 
